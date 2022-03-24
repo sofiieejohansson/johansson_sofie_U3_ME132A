@@ -63,7 +63,7 @@ function showCourses(student){
             courseBox.push(info);
         } else {
             let info = div.innerHTML = `
-            <div>
+            <div class="notdone">
                 <h3>${courses[i].title}</h3>
                 <p>(${student.courses[i].passedCredits} of ${courseInfo[courses[i].courseId].totalCredits} credits)</p>
             </div>`
