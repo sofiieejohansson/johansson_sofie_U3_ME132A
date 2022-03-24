@@ -77,4 +77,3 @@ function showCourses(student){
 }
 
 showStudents(DATABASE.students);
-
