@@ -85,7 +85,7 @@ function showCourses(student){
 }
 
 function searchLastName() {
-    return input.value;
+    return input.value.toLowerCase();
 }
 
 let input = document.getElementById("search-student");
@@ -97,7 +97,7 @@ function studentLastName (){
         document.getElementById("students").innerHTML = ""
         if ("" == searchLastName()){
             document.getElementById("students").innerHTML = ""
-        } else if (students[i].lastName.toLocaleLowerCase().includes(searchLastName())) {
+        } else if (students[i].lastName.toLowerCase().includes(searchLastName())) {
             studentsArray.push(students[i]);
         } 
 
@@ -109,7 +109,7 @@ function studentLastName (){
 function submit () {
     let studentsArray = []
     for ( let i = 0; i < students.length; i++){
-        if (students[i].lastName.toLocaleLowerCase().includes(searchLastName())) {
+        if (students[i].lastName.toLowerCase().includes(searchLastName())) {
             studentsArray.push(students[i]);
         } 
     }
