@@ -26,7 +26,6 @@ function showStudent(id) {
     return div;
 }
 
-
 // skapar en funktion för att filtrera ut studenternas totala credits
 function sumCredits(student) {
     let credits = [];
@@ -85,6 +84,40 @@ function showCourses(student){
 
 }
 
+function searchLastName() {
+    return input.value;
+}
+
+let input = document.getElementById("search-student");
+input.addEventListener("keyup", studentLastName);
+
+function studentLastName (){
+    let studentsArray = []
+    for ( let i = 0; i < students.length; i++){
+        document.getElementById("students").innerHTML = ""
+        if ("" == searchLastName()){
+            document.getElementById("students").innerHTML = ""
+        } else if (students[i].lastName.toLocaleLowerCase().includes(searchLastName())) {
+            studentsArray.push(students[i]);
+        } 
+
+    }
+
+    showStudents(studentsArray)
+}
+
+function submit () {
+    let studentsArray = []
+    for ( let i = 0; i < students.length; i++){
+        if (students[i].lastName.toLocaleLowerCase().includes(searchLastName())) {
+            studentsArray.push(students[i]);
+        } 
+    }
+
+    showStudents(studentsArray)
+}
+
+input.addEventListener("submit", submit);
 
 showStudents(DATABASE.students);
 
