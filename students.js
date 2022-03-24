@@ -1,10 +1,16 @@
 "use strict"
 
+// skapar en global variabel för databasen
 let students = DATABASE.students;
 
+// skapar en funktion med syftet att skapa en div med en class= container som innehåller
+// studentens förnamn och efternamn samt deras totala credits
+// samt en titel för infon = Courses
+// och ännu en div för alla kurserna
+// avslutningsvis returneras den nya diven  
 function showStudent(id) {
     let div = document.createElement("div");
-    let student = DATABASE.students[id];
+    let student = DATABASE.students[id]; // skapar en variabel för studenternas id i databasen för att korta ner rad 16
     div.classList = "container";
     div.innerHTML = `
     <header>${student.firstName} ${student.lastName} (Total Credits: ${sumCredits(student)})</header>
@@ -20,6 +26,8 @@ function showStudent(id) {
     return div;
 }
 
+
+// skapar en funktion för att filtrera ut studenternas totala credits
 function sumCredits(student) {
     let credits = [];
     for (let course of student.courses){
@@ -34,6 +42,7 @@ function sumCredits(student) {
     return creditSum;
 }
 
+// 
 function showStudents(students){
     let studentsElement = document.getElementById("students");
     for (let student of students){
@@ -58,14 +67,14 @@ function showCourses(student){
             let info = div.innerHTML = `
             <div class="done">
                 <h3>${courses[i].title}</h3>
-                <p>(${student.courses[i].passedCredits} of ${courseInfo[courses[i].courseId].totalCredits} credits)</p>
+                <p>${student.courses[i].started.semester} ${student.courses[i].started.year} (${student.courses[i].passedCredits} of ${courseInfo[courses[i].courseId].totalCredits} credits)</p>
             </div>`
             courseBox.push(info);
         } else {
             let info = div.innerHTML = `
             <div class="notdone">
                 <h3>${courses[i].title}</h3>
-                <p>(${student.courses[i].passedCredits} of ${courseInfo[courses[i].courseId].totalCredits} credits)</p>
+                <p>${student.courses[i].started.semester} ${student.courses[i].started.year} (${student.courses[i].passedCredits} of ${courseInfo[courses[i].courseId].totalCredits} credits)</p>
             </div>`
             
             courseBox.push(info);
@@ -76,4 +85,6 @@ function showCourses(student){
 
 }
 
+
 showStudents(DATABASE.students);
+
