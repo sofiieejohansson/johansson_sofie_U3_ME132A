@@ -1,0 +1,16 @@
+body {
+    margin: 0 auto;
+    width: 100vw;
+    padding-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
