@@ -51,17 +51,25 @@ function findResponsible (courses) {
     return teacherBox.toString().split(",").join(""); 
 }
 
-function findTeachers (courses) {
-    let otherTeachers = [];
+function findTeachers(courses) {
+    let teacherBox = []
     for (let i = 0; i < DATABASE.teachers.length; i++) {
-        let div = document.createElement("div");
-        if (DATABASE.teachers[i].teacherId == courses.teachers) {
+        let div = document.createElement("div")
+        if (DATABASE.teachers[i].teacherId == courses.teachers[0]) {
             let text = div.innerHTML = `
-            <h2>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName} (${DATABASE.teachers[i].post})</h2>`
-            otherTeachers.push(text);
-        }
+            <h4>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName}</h4>`
+            teacherBox.push(text);
+        } else if (DATABASE.teachers[i].teacherId == courses.teachers[1]) {
+            let text = div.innerHTML = `
+            <h4>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName}</h4>`
+            teacherBox.push(text);
+        } else if (DATABASE.teachers[i].teacherId == courses.teachers[2]) {
+            let text = div.innerHTML = `
+            <h4>${DATABASE.teachers[i].firstName} ${DATABASE.teachers[i].lastName}</h4>`
+            teacherBox.push(text);
+        } 
     }
-    return otherTeachers.toString().split(",").join("");
+    return teacherBox.toString().split(",").join("");
 }
 
 

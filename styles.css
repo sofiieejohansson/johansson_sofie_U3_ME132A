@@ -23,10 +23,51 @@ h1 {
     background-color: white;
 }
 
+#resTeacher {
+    margin: 5px;
+    border-radius: 8px;
+    border: solid 1px black;
+    background-color: salmon;
+    height: fit-content;
+}
+
+#resTeacher > h2 {
+    font-size: 15px;
+    margin: 5px;
+    padding: 5px;
+}
+
+#teachers {
+    display: flex;
+    flex-direction: row;
+}
+
+.results {
+    margin: 5px;
+    padding: 5px;
+    border: solid 1px black;
+    border-radius: 8px;
+}
+
+#teachers > h4 {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    border: solid 1px black;
+    font-size: 15px;
+}
+
+#studentcourses {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+}
+
 header {
     font-size: 25px;
-    margin-top: 20px;
-    padding-top: 10px;
+    margin-top: 10px;
+    padding-top: 5px;
 }
 
 h4 {
