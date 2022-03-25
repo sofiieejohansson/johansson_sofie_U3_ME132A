@@ -2,15 +2,6 @@
 
 let courses = DATABASE.courses;
 
-let allTeachers = DATABASE.teachers;
-
-function courseResponsible (id) {
-    let course = DATABASE.courses[id]
-    let teachersNames = allTeachers.map((teacher) => teacher.firstName + " " + teacher.lastName + " " + `(${teacher.post})`);
-    let res = course.courseResponsible;
-    return teachersNames[res];
-}
-
 function showCourse(id) {
     let div = document.createElement("div");
     let courses = DATABASE.courses[id];
