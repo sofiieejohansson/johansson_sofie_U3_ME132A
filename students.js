@@ -119,5 +119,40 @@ function submit () {
 
 input.addEventListener("submit", submit);
 
+
+/*function checkDarkMode () {
+    const darkMode = localStorage.getItem("darkMode");
+    if (darkMode == null) {
+    localStorage.setItem("darkMode", JSON.stringify(false));
+ }
+    var element = document.body;
+
+    if (JSON.parse(darkMode)== true) {
+        element.classList.add("darkMode")
+    } else {
+        element.classList.remove("darkMode");
+    }
+}
+*/
+
+function darkMode() {
+    var element = document.body;
+    const darkMode = localStorage.getItem("darkMode")
+    element.classList.toggle("darkMode");
+
+    if (JSON.parse(darkMode) == true) {
+        element.classList.remove("darkMode");
+        localStorage.setItem("darkMode", JSON.stringify(false));
+    } 
+    else if (JSON.parse(darkMode) == false) {
+        element.classList.add("darkMode");
+        localStorage.setItem("darkMode", JSON.stringify(true));
+    }
+}
+
+const btn = document.querySelector('#light-dark');
+btn.addEventListener("click", darkMode);
+
+
 showStudents(DATABASE.students);
 

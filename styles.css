@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(226, 226, 226);
+    background-color: rgb(218, 218, 218);
     margin: 15px;
     padding-bottom: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -134,5 +134,10 @@ h4 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.darkMode {
+    filter: invert(1) hue-rotate(180deg);
+    background-color: black;
 }
 
